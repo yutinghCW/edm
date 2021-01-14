@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form .form__group {
+  max-width: none;
+  width: calc(100% - 160px);
+}
+
+#sound {
+  display: none;
+}
+
+section.section--btn {
+  font-size: 0;
+}
+@media (max-width: 767px) {
+  section.section--btn button {
+    width: 100%;
+  }
+}
+section.section--sop .close--sop {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  padding: 20px;
+  color: #171717;
+  border: 0;
+  outline: 0;
+}
+section.section--sop .close--sop:hover {
+  color: #D60C18;
+}
+section.section--sop .close--sop .icon {
+  display: block;
+  font-size: 1.125rem;
+}
+
+#previewHtml > table {
+  border: 1px solid #D3D5D7;
+}
+
+#sourceCode #copySource {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+#sourceCode textarea {
+  width: 100%;
+}
+
+/*# sourceMappingURL=generator.css.map */
