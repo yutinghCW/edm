@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Use the latest (edge) version of IE rendering engine -->
+    <title>EmailTemplate-Responsive</title>
+    <!-- The title tag shows in email notifications, like Android 4.4. -->
+    <!-- Please use an inliner tool to convert all CSS to inline as inpage or external CSS is removed by email clients -->
+    <!-- important in CSS is used to prevent the styles of currently inline CSS from overriding the ones mentioned in media queries when corresponding screen sizes are encountered -->
+    <meta content="telephone=no" name="format-detection">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC: 300,400,500,700|Noto+Sans+TC: 100,300,400,500,700|Roboto: 100,300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.cw.com.tw/assets_new/img/favicon.ico" type="image/x-icon" />
+    <!-- CSS Reset -->
+    <style type="text/css">
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        /* What it does: Forces Outlook.com to display emails full width. */
+        .ExternalClass {
+            width: 100%;
+        }
+        /* What is does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+        /* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+        /* What it does: Another work-around for iOS meddling in triggered links. */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+        }
+    </style>
+    <!-- Progressive Enhancements -->
+    <style type="text/css">
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td: hover,
+        .button-a: hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+        /* Media Queries */
+        @media screen and (max-width: 640px) {
+            .email-container {
+                width: 100% !important;
+            }
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid,
+            .fluid-centered {
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            /* And center justify these ones. */
+            .fluid-centered {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="#eee" width="100%" style="margin: 0;" yahoo="yahoo">
+    <table bgcolor="#eee" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse: collapse;">
+        <tr>
+            <td>
+                <center style="width: 100%;">
+                    <!-- Visually Hidden Preheader Text : BEGIN -->
+                    <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> (Optional) This text will appear in the inbox preview, but not the email body. </div>
+                    <!-- Visually Hidden Preheader Text : END -->
+                    <!-- Email Header : BEGIN -->
+                    <table border="0" align="center" cellpadding="0" cellspacing="0" width="640" bgcolor="#eee" class="email-container">
+                        <tr>
+                            <td style="padding: 10px 15px; text-align: right;">
+                                <a href="https://topic.cw.com.tw/edm/cw_40/cw40.html?file=1KM_EFEgQlrixqlTIm6qvWdV4Bggi3-TJ8_pm1LCDdBg" style="color: #48545D; font-size: 0.875rem; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; text-decoration: none;" id="headLink" target="_blank">無法看到完整內容，請點此處</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table border="0" align="center" cellpadding="0" cellspacing="0" width="640" bgcolor="#fff" class="email-container" style="border-bottom: 1px solid #eee;">
+                        <tr>
+                            <td style="padding: 30px 4.688% 20px; text-align: center;">
+                                <a style="display: block; line-height: 0;" href="https://40.cw.com.tw/" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://topic.cw.com.tw/edm/cw_40/img/cw40@3x.png" style="display: inline-block; height: 40px;" alt="天下雜誌40週年">
+                                </a>
+                                <div style="margin-top: 10px; line-height: 1.5;">
+                                    <div style="font-size: 1rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif;">
+                                        <strong>天下40週年電子報.vo1</strong>
+                                    </div>
+                                    <div style="font-size: 0.875rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif;">2021年1月2日</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Email Header : END -->
+                    <!-- Email Body : BEGIN -->
+                    <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#fff" width="640" class="email-container">
+                        <!-- site title : BEGIN -->
+                        <tr>
+                            <td style="padding: 50px 4.688% 0; text-align: center;">
+                                <div style="display: inline-block; padding: 0 1rem 2px; color: #000; font-size: 1.125rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; line-height: 1.875rem; text-align: center; background-color: #9CC815;">
+                                    本週主題
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- site title : END -->
+                        <!-- 1 Column Text : BEGIN -->
+                        <tr>
+                            <td style="padding: 0 4.688%;">
+                                <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <h1 style="margin-top: 20px; margin-bottom: 20px; font-size: 1.5rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-weight: 500;">
+                                                <strong>邁向營收百億</strong>　台灣快速成長企業成功秘訣</h1>
+                                                <p style="margin-top: 0; margin-bottom: 0; font-size: 1rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; text-align: left; line-height: 1.5; white-space: break-spaces;">中美貿易戰延燒，新科技造成革命，身處充滿變化的超級競爭時代，誰能擺脫困境、逆勢突圍？
+
+本週企業突圍頻道，將針對《天下》最新「快速成長企業100強」調查，挖掘100家營收邁向百億的快速成長企業案例、大膽跨界的成功關鍵。</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 1 Column Text : BEGIN -->
+                        <!-- site title : BEGIN -->
+                        <tr>
+                            <td style="padding: 50px 4.688% 0; text-align: center;">
+                                <div style="display: inline-block; padding: 0 1rem 2px; color: #000; font-size: 1.125rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; line-height: 1.875rem; text-align: center; background-color: #9CC815;">
+                                    專題報導
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- site title : END -->
+                        <!-- Hero Image, Flush : BEGIN -->
+                        <tr>
+                            <td style="padding-top: 20px;" class="full-width-image">
+                                <img src="https://storage.googleapis.com/www-cw-com-tw/article/201908/article-5d51806a3c85a.jpg" width="640" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 640px; height: auto;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0 4.688%">
+                                <a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="display: block; padding: 20px 0 10px; text-decoration: none;" target="_blank">
+                                    <span style="display: block; padding-left: 5px; margin-bottom: 5px; color: #4B545C; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; border-left: 2px solid #9CC815;">台灣經濟新亮點</span>
+                                    <h3 style="margin: 0; color: #000; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.5;">台灣成長最快十大行業　反映什麼趨勢？</h3>
+                                </a>
+                                <p style="margin: 0; padding: 0 0 30px; color: #939EA7; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1rem; mso-height-rule: exactly; line-height: 1.5;">
+                                    投資、求職必看！《天下》調查中心擁有超過2000家、30多年的企業資料庫，長久以來，這份調查幾乎就是台灣經濟發展的縮影，看著台積電、聯發科、大立光從小變成世界級的企業...<a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #9CC815; font-weight: bold; text-transform: uppercase; text-decoration: none;"> MORE</span></a>
+                                </p>
+                            </td>
+                        </tr>
+                        <!-- Hero Image, Flush : END -->
+                        <!-- 1 Column Text : BEGIN -->
+                        <tr bgcolor="#fbfbfb">
+                            <td style="padding: 30px 4.688% 0">
+                                <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                                    <tr>
+                                        <td class="full-width-image">
+                                            <img src="https://storage.googleapis.com/www-cw-com-tw/article/201908/article-5d51806a3c85a.jpg" width="640" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 640px; height: auto;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="display: block; padding: 20px 0 10px; text-decoration: none;" target="_blank">
+                                                <span style="display: block; padding-left: 5px; margin-bottom: 5px; color: #4B545C; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; border-left: 2px solid #9CC815;">台灣經濟新亮點</span>
+                                                <h3 style="margin: 0; color: #000; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.5;">台灣成長最快十大行業　反映什麼趨勢？</h3>
+                                            </a>
+                                            <p style="margin: 0; padding: 0 0 30px; color: #939EA7; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1rem; mso-height-rule: exactly; line-height: 1.5;">
+                                                投資、求職必看！《天下》調查中心擁有超過2000家、30多年的企業資料庫，長久以來，這份調查幾乎就是台灣經濟發展的縮影，看著台積電、聯發科、大立光從小變成世界級的企業...<a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #9CC815; font-weight: bold; text-transform: uppercase; text-decoration: none;"> MORE</span></a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 1 Column Text : BEGIN -->
+                        <!-- hr line : BEGIN -->
+                        <tr>
+                            <td style="padding: 0 4.688%; line-height: 0; background-color: #fbfbfb;">
+                                <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="padding: 0">
+                                    <tr>
+                                        <td align="center" valign="top" width="100%" style="border-top: 1px solid #eee;"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- hr line : END -->
+                        <!-- Thumbnail Left, Text Right : BEGIN -->
+                        <tr bgcolor="#fbfbfb">
+                            <td dir="ltr" align="center" valign="top" width="100%" style="padding: 30px 3.125% 0;">
+                                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td width="45%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" valign="top" style="padding: 0 10px 20px;">
+                                                        <img src="https://storage.googleapis.com/www-cw-com-tw/article/201908/article-5d5136fa62338.jpg" width="100%" alt="alt_text" border="0" style="display: block;" class="center-on-narrow">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="55%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" style="padding: 0 10px;" class="center-on-narrow">
+                                                        <a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="display: block; padding: 0 0 10px; text-align: left; text-decoration: none;" target="_blank">
+                                                            <span style="display: block; padding-left: 5px; margin-bottom: 5px; color: #4B545C; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; border-left: 2px solid #9CC815;">165間中國加盟店轉直營</span>
+                                                            <h3 style="margin: 0; color: #000; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.5;">兩年收了百間中國加盟店　竟讓佐登妮絲獲利成長翻倍</h3>
+                                                        </a>
+                                                        <p style="margin: 0; padding: 0 0 30px; color: #939EA7; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1rem; mso-height-rule: exactly; text-align: left; line-height: 1.5;">
+                                                            台灣美容品牌佐登妮絲是去年美容產業獲利成長王，這背後是165間中國加盟店轉為直營，及大半年的整頓過程，總經理陳佳琦如何「先蹲後跳」？<a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #9CC815; font-weight: bold; text-transform: uppercase; text-decoration: none;"> MORE</span></a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Thumbnail Left, Text Right : END -->
+                        <!-- hr line : BEGIN -->
+                        <tr>
+                            <td style="padding: 0 4.688%; line-height: 0; background-color: #fbfbfb;">
+                                <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="padding: 0">
+                                    <tr>
+                                        <td align="center" valign="top" width="100%" style="border-top: 1px solid #eee;"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- hr line : END -->
+                        <!-- Thumbnail Left, Text Right : BEGIN -->
+                        <tr bgcolor="#fbfbfb">
+                            <td dir="ltr" align="center" valign="top" width="100%" style="padding: 30px 3.125% 0;">
+                                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td width="45%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" valign="top" style="padding: 0 10px 20px;">
+                                                        <img src="https://storage.googleapis.com/www-cw-com-tw/article/201908/article-5d523590dfd4b.JPG" width="100%" alt="alt_text" border="0" style="display: block;" class="center-on-narrow">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="55%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" style="padding: 0 10px;" class="center-on-narrow">
+                                                        <a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="display: block; padding: 0 0 10px; text-align: left; text-decoration: none;" target="_blank">
+                                                            <span style="display: block; padding-left: 5px; margin-bottom: 5px; color: #4B545C; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; border-left: 2px solid #9CC815;">5年內買下台美日藥廠</span>
+                                                            <h3 style="margin: 0; color: #000; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.5;">藥房小開5年買下3廠：我要讓全世界知道台灣做的藥！</h3>
+                                                        </a>
+                                                        <p style="margin: 0; padding: 0 0 30px; color: #939EA7; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1rem; mso-height-rule: exactly; text-align: left; line-height: 1.5;">
+                                                            從小西藥經銷商到國際藥廠，保瑞藥業5年內營收成長大翻3倍，一舉成為製藥獲利王，是如何靠精準併購迅速擴張？<a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #9CC815; font-weight: bold; text-transform: uppercase; text-decoration: none;"> MORE</span></a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Thumbnail Left, Text Right : END -->
+                        <!-- site title : BEGIN -->
+                        <tr bgcolor="#fbfbfb">
+                            <td style="padding: 50px 4.688% 0; text-align: center;">
+                                <div style="display: inline-block; padding: 0 1rem 2px; color: #000; font-size: 1.125rem; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; line-height: 1.875rem; text-align: center; background-color: #9CC815;">
+                                    最新論壇
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- site title : END -->
+                        <!-- Thumbnail Left, Text Right : BEGIN -->
+                        <tr bgcolor="#fbfbfb">
+                            <td dir="ltr" align="center" valign="top" width="100%" style="padding: 30px 3.125% 0;">
+                                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td width="45%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" valign="top" style="padding: 0 10px 20px;">
+                                                        <img src="https://storage.googleapis.com/www-cw-com-tw/article/201908/article-5d5e425e5c4fb.jpg" width="100%" alt="alt_text" border="0" style="display: block;" class="center-on-narrow">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="55%" valign="top" class="stack-column-center">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td dir="ltr" style="padding: 0 10px;" class="center-on-narrow">
+                                                        <a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="display: block; padding: 0 0 10px; text-align: left; text-decoration: none;" target="_blank">
+                                                            <span style="display: block; padding-left: 5px; margin-bottom: 5px; color: #4B545C; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; border-left: 2px solid #9CC815;">《燃起主管魂》新書分享活動</span>
+                                                            <h3 style="margin: 0; color: #000; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.5;">限額報名｜雲朗觀光集團盛治仁</h3>
+                                                        </a>
+                                                        <p style="margin: 0; padding: 0 0 30px; color: #939EA7; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1rem; mso-height-rule: exactly; text-align: left; line-height: 1.5;">
+                                                            管理秘訣分享 盛治仁的管理路不僅是空降主管更是面對陌生領域，他認為管理雖困難，卻也很迷人，藉由分享管理心得，希望幫助大家打造屬於自己的管理體質與黃金比例<a href="https://www.cw.com.tw/article/articleLogin.action?id=5096427&amp; template=transformers&amp; utm_source=email_edm&amp; utm_medium=email&amp; utm_campaign=email_edm-email-cwtransformer" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #9CC815; font-weight: bold; text-transform: uppercase; text-decoration: none;"> MORE</span></a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Thumbnail Left, Text Right : END -->
+                    </table>
+                    <!-- Email Body : END -->
+                    <!-- Email Footer : BEGIN -->
+                    <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="640" class="email-container">
+                        <tr>
+                            <td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height: 18px; text-align: center; color: #888888;">
+                                <webversion style="color: #cccccc; text-decoration: underline; font-weight: bold;">View as a Web Page</webversion><br><br>
+                                Company Name<br><span class="mobile-link--footer">Adobe Systems Incorporated, 345 Park Avenue</span><br><br>
+                                <unsubscribe style="color: #888888; text-decoration: underline;">unsubscribe</unsubscribe>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Email Footer : END -->
+                    <!-- Email Footer : BEGIN -->
+                    <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">This email was sent by: <b>%%Member_Busname%%</b><br>%%Member_Addr%% %%Member_City%%, %%Member_State%%, %%Member_PostalCode%%, %%Member_Country%%</div>
+                    <!-- Email Footer : END -->
+                </center>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
