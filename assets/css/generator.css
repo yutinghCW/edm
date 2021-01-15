@@ -1,3 +1,21 @@
+header select {
+  display: inline-block;
+  padding: 0.5rem 2rem 0.5rem 0;
+  color: #D60C18;
+  font-size: 1rem;
+  font-weight: 500;
+  vertical-align: middle;
+  background-image: url("https://yutinghcw.github.io/design/assets/images/common/down--primary.svg");
+  -moz-background-size: 0.78125rem;
+  -o-background-size: 0.78125rem;
+  -webkit-background-size: 0.78125rem;
+  background-size: 0.78125rem;
+  background-position: calc(100% - 0.78125rem) center;
+  background-repeat: no-repeat;
+  border: 0;
+  cursor: pointer;
+}
+
 .form {
   display: flex;
   flex-wrap: wrap;
