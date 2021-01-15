@@ -20,9 +20,16 @@
             <a href="https://www.cw.com.tw/" target="_blank" class="logo logo--main">
                 <img src="https://www.cw.com.tw/images/common/logo.svg" alt="">
             </a>
-            <a class="logo logo--sub">
-                天下電子報 EDM 公版製作工具
-            </a>
+            <select name="type" id="edmType" class="edm-type">
+                <option value="cwedm" selected>天下電子報</option>
+                <option value="cwdaily">天下每日報</option>
+                <option value="webaccess">天下全閱讀訂戶週報</option>
+                <!-- <option value="transformers">企業突圍電子報</option>
+                <option value="off">Off 學時尚生活電子報</option> -->
+                <option value="economist">經濟學人電子報</option>
+                <option value="cweng">英文網站電子報</option>
+                <option value="anniv40">天下 40 週年電子報</option>
+            </select>
         </div>
     </header>
     <main class="py40">
@@ -107,6 +114,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://yutinghcw.github.io/design/assets/js/cw.js"></script>
 	<script src="../assets/js/cwedm.js"></script>
+	<script src="../assets/js/generator.js"></script>
 </body>
 
 </html>
