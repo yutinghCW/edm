@@ -1,5 +1,5 @@
 var width = $(window).width(),
-    initial = "http://yutinghcw.github.io/edm/initial/cwedm.html",
+    initial = "https://yutinghcw.github.io/edm/initial/cwedm.html",
     currentYear = new Date().getFullYear();
 
 //修改目的：提供EDM公版//

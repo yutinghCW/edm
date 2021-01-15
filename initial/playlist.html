@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- Website Design By: www.happyworm.com -->
+    <title></title>
+    <meta name="viewport" content="initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link href="../assets/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../assets/js/jquery.jplayer.min.js"></script>
+    <script src="../assets/js/jplayer.playlist.min.js"></script>
+
+    <script>
+        //從網址取得日期參數
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+        var file = getUrlParameter('file');
+        var Daily = getUrlParameter('Daily');
+
+        //把日期丟給網頁title，方便GA查詢
+        document.title = "每日報mp3播放器 - " + getUrlParameter('Daily') + " list";
+
+        //以下是Google Spreadsheets的網址。最後加入的date參數可以篩選需要的日期項目
+        var gspreadsheets = "https://spreadsheets.google.com/feeds/list/" + file + "/od6/public/values?alt=json&sq=display%3Dy+and+mp3%3C%3E%22%22";
+
+        //以Json格式載入文件
+        var data = { voicelist: [] };
+        $.getJSON(gspreadsheets, function (l) {
+            //將載入列表轉換為清單的格式
+            $.each(l.feed.entry, function (i, f) {
+                data.voicelist[i] = { id: f.gsx$連結.$t, title: f.gsx$標題.$t, mp3: f.gsx$mp3.$t };
+            });
+
+            //mp3 player的播放清單程式
+            new jPlayerPlaylist({
+                jPlayer: "#playlist",
+                cssSelectorAncestor: "#container_list"
+            },
+                data.voicelist,  //清單物件放在這裡
+                {
+                    playlistOptions: {
+                        autoPlay: true,
+                        enableRemoveControls: false
+                    },
+                    supplied: "oga, mp3",
+                    wmode: "window",
+                    useStateClassSkin: true,
+                    autoBlur: false,
+                    smoothPlayBar: true,
+                    keyEnabled: true
+                });
+        })
+//]]>
+    </script>
+
+</head>
+
+<body style="margin:0; padding:0">
+    <div id="playlist" class="jp-jplayer"></div>
+    <div id="container_list" class="jp-audio" role="application" aria-label="media player">
+        <div class="jp-type-playlist">
+            <div class="jp-gui jp-interface">
+                <div class="jp-controls">
+                    <button class="jp-previous" role="button" tabindex="0">previous</button>
+                    <button class="jp-play" role="button" tabindex="0">play</button>
+                    <button class="jp-next" role="button" tabindex="0">next</button>
+                    <!--button class="jp-stop" role="button" tabindex="0">stop</button-->
+                </div>
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+                <!--div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div-->
+                <div class="jp-time-holder">
+                    <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                    <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                </div>
+            </div>
+            <div class="jp-playlist">
+                <ul>
+                    <li>&nbsp;</li>
+                </ul>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a
+                    href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
