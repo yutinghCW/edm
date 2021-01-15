@@ -57,7 +57,7 @@ function makeSourceCode(key, worksheet) {
                         break;
                     case 'pure-text':
                         // console.log('pure-text');
-                        codeBody += '<tr><td style="padding: 0 4.688%; text-align: center;"><h1 style="margin-top: 20px; margin-bottom: 20px; font-size: 1.5rem; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-weight: 400;">' + f.columTitle + '</h1><p style="margin-top: 0; margin-bottom: 0; font-size: 1rem; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; text-align: left; line-height: 1.5; white-space: break-spaces;">' + f.columText + '</p></td></tr>';
+                        codeBody += '<tr><td style="padding: 0 4.688%; text-align: center;"><h1 style="margin-top: 20px; margin-bottom: 20px; font-size: 1.5rem; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-weight: 300;">' + f.columTitle + '</h1><p style="margin-top: 0; margin-bottom: 0; color: #888; font-size: 1rem; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; text-align: left; line-height: 1.5; white-space: break-spaces; font-weight: 300">' + f.columText + '</p></td></tr>';
                         break;
                     case 'single-column-main':
                         // console.log('single-column-main');
