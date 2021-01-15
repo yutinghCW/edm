@@ -139,6 +139,7 @@ function getUrlParameter(sParam) {
 
 if ( window.location.href.indexOf('initial') > 0 ) {
     var key = getUrlParameter('file'),
+        playId = getUrlParameter('playID'),
         data = {
             funcColum: []
         };
@@ -157,5 +158,9 @@ if ( window.location.href.indexOf('initial') > 0 ) {
         });
         document.title = data.funcColum[0].columTitle + " - 天下電子報";
         // ga('send', 'event', 'edmcode', 'finish', 'make-edm success');
+        if ( window.location.href.indexOf('playID') > 0 ) {
+            $('#player').show();
+            $('#player').siblings().show();
+        }
     })
 }
