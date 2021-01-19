@@ -407,6 +407,8 @@
 .jp-details,
 .jp-playlist {
 	width: 100%;
+	height: calc(100vh - 80px);
+    overflow: scroll;
 	/* background-color: #ccc; */
 	border-top: 0px solid #cc0000;
 }
