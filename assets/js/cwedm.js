@@ -70,7 +70,7 @@ function makeSourceCode(key, worksheet) {
                         break;
                     case 'single-column':
                         console.log('single-column, ' + multiColumCont);
-                        codeBody += checkColumnEnd(multiColumCont) + '<tr><td style="padding: 20px 10px 0;"><table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="email-container"><tr><td class="full-width-image"><img src="' + f.columImage + '" width="100%" alt="' + f.columTitle + '" border="0" align="center" style="width: 100%; height: auto;"></td></tr><tr><td style="padding: 20px 0 10px;"><a href="' + f.columLink + '" style="display: block; padding: 0 0 10px; text-decoration: none; text-align: left;" target="_blank"><h3 style="margin: 0; color: #000; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.25;">' + f.columTitle + '</h3></a><p style="margin: 0; padding: 0; color: #666; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1rem; mso-height-rule: exactly; line-height: 1.5; text-align: left;">' + f.columText + '<a href="' + f.columLink + '" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #d60c18; text-transform: uppercase; text-decoration: none;">→ MORE</span></a></p></td></tr></table></td></tr>';
+                        codeBody += checkColumnEnd(multiColumCont) + '<tr><td style="padding: 20px 10px 0;"><table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="email-container"><tr><td class="full-width-image"><a href="' + f.columLink + '" target="_blank"><img src="' + f.columImage + '" width="100%" alt="' + f.columTitle + '" border="0" align="center" style="width: 100%; height: auto;"></a></td></tr><tr><td style="padding: 20px 0 10px;"><a href="' + f.columLink + '" style="display: block; padding: 0 0 10px; text-decoration: none; text-align: left;" target="_blank"><h3 style="margin: 0; color: #000; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1.5rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.25;">' + f.columTitle + '</h3></a><p style="margin: 0; padding: 0; color: #666; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1rem; mso-height-rule: exactly; line-height: 1.5; text-align: left;">' + f.columText + '<a href="' + f.columLink + '" style="text-decoration: none;" target="_blank"><span style="display: inline-block; color: #d60c18; text-transform: uppercase; text-decoration: none;">→ MORE</span></a></p></td></tr></table></td></tr>';
                         multiColumCont = 0;
                         break;
                     case 'recommand-book':
@@ -184,7 +184,8 @@ if ( window.location.href.indexOf('initial') > 0 ) {
             };
         });
         document.title = data.funcColum[0].columTitle + " - 天下電子報";
-        // ga('send', 'event', 'edmcode', 'finish', 'make-edm success');
+		gtag('config', 'UA-1198057-9');
+		ga('send', 'pageview');
         if ( window.location.href.indexOf('playID') > 0 ) {
             $('#player').show();
             $('#player').siblings().show();

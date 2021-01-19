@@ -24,18 +24,25 @@
                 }
             }
         }
-        var file = getUrlParameter('file');
         var Daily = getUrlParameter('Daily');
 
+        //把日期丟給網頁title，方便GA查詢
+        document.title = "每日報mp3播放器 - " + getUrlParameter('Daily') + " list";
+
+
         //以下是Google Spreadsheets的網址。最後加入的date參數可以篩選需要的日期項目
-        var gspreadsheets = "https://spreadsheets.google.com/feeds/list/" + file + "/od6/public/values?alt=json&sq=%E9%A1%AF%E7%A4%BA=y";
+        var gspreadsheets = "https://spreadsheets.google.com/feeds/list/1T93SUBBtSKWSwIfJNCiyujrOeXCN2lRDOdebl8Yk2TE/od6/public/values?alt=json&sq=date=" + Daily;
 
         //以Json格式載入文件
         var data = { voicelist: [] };
         $.getJSON(gspreadsheets, function (l) {
             //將載入列表轉換為清單的格式
             $.each(l.feed.entry, function (i, f) {
-                data.voicelist[i] = { id: f.gsx$連結.$t, title: f.gsx$標題.$t, mp3: f.gsx$mp3.$t };
+                data.voicelist[i] = {
+                    date: f.gsx$date.$t,
+                    id: f.gsx$id.$t,
+                    title: f.gsx$title.$t,
+                    mp3: f.gsx$mp3.$t };
             });
 
             //mp3 player的播放清單程式
@@ -43,24 +50,20 @@
                 jPlayer: "#playlist",
                 cssSelectorAncestor: "#container_list"
             },
-                data.voicelist,  //清單物件放在這裡
-                {
-                    playlistOptions: {
-                        autoPlay: true,
-                        enableRemoveControls: false
-                    },
-                    supplied: "oga, mp3",
-                    wmode: "window",
-                    useStateClassSkin: true,
-                    autoBlur: false,
-                    smoothPlayBar: true,
-                    keyEnabled: true
-                });
+            data.voicelist,  //清單物件放在這裡
+            {
+                playlistOptions: {
+                    autoPlay: true,
+                    enableRemoveControls: false
+                },
+                supplied: "oga, mp3",
+                wmode: "window",
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
         })
-
-        //把日期丟給網頁title，方便GA查詢
-        document.title = "每日報mp3播放器 - " + getUrlParameter('Daily') + " list";
-
         //]]>
     </script>
 
