@@ -48,7 +48,7 @@ function makeSourceCode(key, worksheet) {
             soundLink += '<a href="' + initial + "?file=" + key + '&amp;playID=all" title="立刻聽天下" style="float: right; display: block; color: #666; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 0.8125rem; line-height: 1.5; text-decoration: none;"><img style="display: inline-block; vertical-align: middle;" src="https://topic.cw.com.tw/edm/cwdaily/images/headphone@2x.png" width="20" alt="headphone icon"><span style="display: inline-block; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; vertical-align: middle;">&nbsp;&nbsp;立刻聽天下</span></a>';
         }
 
-        if ( window.location.href.indexOf('Daily') > 0 ) {
+        if ( window.location.href.indexOf('playID=all') > 0 ) {
             codeFrame = '<tr><td style="padding-top: 20px;"><iframe id="player" width="100%" height="280" scrolling="no" frameborder="no" src="' + playlist + "?file=" + key + '&Daily=' + data.funcColum[0].columImage +'&playID=all' + '" style="display: none;"></iframe></td></tr>';
         }
 
