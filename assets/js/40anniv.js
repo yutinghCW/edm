@@ -193,3 +193,13 @@ if ( window.location.href.indexOf('initial') > 0 ) {
     })
 }
 
+if ( window.location.href.indexOf('&email=') > 0 ) {
+    var email = window.location.href.split('email=')[1];
+    $(window).on('load', function(){
+        $('a.unsubscribe').each(function(){
+            var originHref = $(this).attr('href'),
+                unsubscribeHref = originHref.replace('%%email%%', email);
+            $(this).attr('href', unsubscribeHref);
+        })
+    })
+}
