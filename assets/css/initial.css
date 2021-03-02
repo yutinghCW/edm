@@ -92,3 +92,6 @@ a[x-apple-data-detectors] {
         display: inline-block !important;
     }
 }
+.unsubscribe {
+    display: none !important;
+}
