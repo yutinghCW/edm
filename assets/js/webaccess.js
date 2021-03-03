@@ -11,8 +11,10 @@ var width = $(window).width(),
 //從參數製作html原始碼
 function makeSourceCode(key, worksheet) {
     var codeHead = "",
+        previewHead = "",
         codeBody = "",
         trackFoot = "",
+        previewFoot = "",
         codeFoot = "";
     var gspreadsheets = "https://spreadsheets.google.com/feeds/list/" + key + "/" + worksheet + "/public/values?alt=json&sq=%E9%A1%AF%E7%A4%BA=y";
 
