@@ -9,6 +9,7 @@ header {
         color: $primary;
         font-size: 1rem;
         font-weight: 500;
+        line-height: 1;
         vertical-align: middle;
         background-image: url('https://yutinghcw.github.io/design/assets/images/common/down--primary.svg');
         @include background-size(0.78125rem);

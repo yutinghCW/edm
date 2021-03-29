@@ -1201,6 +1201,11 @@ header a.logo img {
 header a.logo.logo--sub {
   color: #fff;
 }
+header select {
+  color: #fff;
+  background-color: transparent;
+  background-image: url("https://yutinghcw.github.io/design/assets/images/common/down--white.svg");
+}
 
 .form__group--outlined .form__group__input {
   background-color: #fff;

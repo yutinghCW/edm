@@ -23,6 +23,11 @@ header {
             color: $white;
         }
     }
+    select {
+        color: $white;
+        background-color: transparent;
+        background-image: url('https://yutinghcw.github.io/design/assets/images/common/down--white.svg');
+    }
 }
 
 .form__group--outlined .form__group__input {
@@ -43,7 +48,7 @@ header {
 .form__group .form__group__input:focus {
     border-color: $surface;
 }
-  
+
 .btn--contained {
     background-color: $surface;
     border: 2px solid $surface;
@@ -69,7 +74,7 @@ header {
 .btn:focus::before {
     opacity: 0.06;
 }
-  
+
 .btn--text {
     color: $black;
     text-decoration: none;
