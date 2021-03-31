@@ -1,5 +1,5 @@
 var width = $(window).width(),
-	initial = "https://yutinghcw.github.io/edm/initial/opinion.html",
+	initial = "https://yutinghcw.github.io/edm/initial/opinion-v2.html",
 	currentYear = new Date().getFullYear();
 
 //修改目的：提供EDM公版//
@@ -256,4 +256,57 @@ $("#source").click( function(){
 	$("#sourceCode").show(); 
 });
 
-makeSourceCode('1g66SLKB-72aVhp0Bpele_pPTl7oite4V9fqrW3OP3ug', 1);
+//從網址取得日期參數
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+}
+
+if ( window.location.href.indexOf('initial') > 0 ) {
+    var key = getUrlParameter('file'),
+        playId = getUrlParameter('playID'),
+        data = {
+            funcColum: []
+        };
+    makeSourceCode(key, 1);
+    $.getJSON("https://spreadsheets.google.com/feeds/list/" + key + "/1/public/values?alt=json&sq=%E9%A1%AF%E7%A4%BA=y", function(l) {
+        //將載入列表轉換為清單的格式
+        $.each(l.feed.entry, function(i, f) {
+            data.funcColum[i] = {
+				columType: f.gsx$欄型.$t,
+				columLink: f.gsx$連結.$t,
+				columChannel: f.gsx$頻道.$t,
+				columChannelLink: f.gsx$頻道連結.$t,
+				columAuthor: f.gsx$作者.$t,
+				columButton: f.gsx$按鈕文字.$t,
+				columImage: f.gsx$圖片.$t,
+				columTitle: f.gsx$標題.$t,
+				columText: f.gsx$內文.$t,
+				columNote: f.gsx$標誌.$t
+            };
+        });
+        document.title = data.funcColum[0].columTitle + " - 獨立評論電子報";
+		gtag('config', 'UA-1198057-9');
+		ga('send', 'pageview');
+        if ( window.location.href.indexOf('playID') > 0 ) {
+            $('#player').show();
+            $('#player').siblings().show();
+        }
+        if ( window.location.href.indexOf('&email=') > 0 ) {
+            var email = window.location.href.split('email=')[1];
+            $(window).on('load', function(){
+                $('a.unsubscribe').each(function(){
+                    var originHref = $(this).attr('href'),
+                        unsubscribeHref = originHref.replace('%%email%%', email);
+                    $(this).attr('href', unsubscribeHref);
+                })
+            })
+        }
+    })
+}
