@@ -86,7 +86,16 @@ function makeSourceCode(key, worksheet) {
 							}
 							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; font-weight: 400; line-height: 1.25; white-space: pre-line;">' + TextEllipsis_55_1 + '</div>';
 						}
-						codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;"><a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a><span style="font-weight: 400;">作者 ' + f.columAuthor + '</span></div>';
+						if ( (f.columChannel !== "") || (f.columAuthor !== "") ) {
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;">';
+							if ( f.columChannel !== "" ) {
+								codeBody += '<a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a>';
+							}
+							if ( f.columAuthor !== "" ) {
+								codeBody += '<span style="font-weight: 400;">作者 ' + f.columAuthor + '</span>';
+							}
+							codeBody += '</div>';
+						}
 						if ( f.columButton !== "" ) {
 							codeBody += '<table cellspacing="0" cellpadding="0" border="0" align="center"><tr><td><a href="' + f.columLink + '" style="display: block; padding: 0 1em; margin: 20px 0 0; color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif; font-size: 0.875rem; text-decoration: none; background: #313160; border: 0.5em solid #313160; border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table>';
 						}
