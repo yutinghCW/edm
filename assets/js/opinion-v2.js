@@ -125,11 +125,54 @@ function makeSourceCode(key, worksheet) {
 							}
 							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; font-weight: 400; line-height: 1.25; white-space: pre-line;">' + TextEllipsis_55_3 + '</div>';
 						}
-						codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;"><a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a><span style="font-weight: 400;">作者 ' + f.columAuthor + '</span></div><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center" style="text-align: right;"><a href="' + f.columLink + '" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table></td></tr></table></td></tr></table></td></tr>';
+						if ( (f.columChannel !== "") || (f.columAuthor !== "") ) {
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;">';
+							if ( f.columChannel !== "" ) {
+								codeBody += '<a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a>';
+							}
+							if ( f.columAuthor !== "" ) {
+								codeBody += '<span style="font-weight: 400;">作者 ' + f.columAuthor + '</span>';
+							}
+							codeBody += '</div>';
+						}
+						if ( f.columButton !== "" ) {
+							codeBody += '<table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center" style="text-align: right;"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table>';
+						}
+						codeBody += '</td></tr></table></td></tr></table></td></tr>';
 						if ( f.columNote == "" ) {
 							codeBody += '<tr><td style="padding: 0 6.667%;"><table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#dadada" width="100%" height="1"><tr><td></td></tr></table></td></tr>';
 						}
 						// console.log('Ract-Img-Text');
+						break;
+					case 'Medium-Img-Text':
+						codeBody += '<tr><td dir="ltr" align="center" valign="top" width="100%" style="padding: 10px 6.667%;"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td class="stack-column" width="180" style="padding: 10px 0;"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td dir="ltr" valign="top"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: block;"><img src="' + f.columImage + '" width="100%" alt="" border="0" style="display: block;"></a></td></tr></table></td><td class="stack-column" width="20"></td><td class="stack-column" style="padding: 10px 0;"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td dir="ltr" valign="top" style="font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif; font-size: 15px; mso-height-rule: exactly; text-align: left;"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: block; color: #000; font-size: 1.125rem; line-height: 1.5; font-weight: 500; text-decoration: none;">' + f.columTitle + '</a>';
+						if ( f.columText !== "" ) {
+							var TextEllipsis_55_3 = "";
+							if ( f.columText.length > 55 ) {
+								TextEllipsis_55_3 = f.columText.substring(0, 54) + "⋯⋯";
+							} else {
+								TextEllipsis_55_3 = f.columText;
+							}
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; font-weight: 400; line-height: 1.25; white-space: pre-line;">' + TextEllipsis_55_3 + '</div>';
+						}
+						if ( (f.columChannel !== "") || (f.columAuthor !== "") ) {
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;">';
+							if ( f.columChannel !== "" ) {
+								codeBody += '<a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a>';
+							}
+							if ( f.columAuthor !== "" ) {
+								codeBody += '<span style="font-weight: 400;">作者 ' + f.columAuthor + '</span>';
+							}
+							codeBody += '</div>';
+						}
+						if ( f.columButton !== "" ) {
+							codeBody += '<table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center" style="text-align: right;"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table>';
+						}
+						codeBody += '</td></tr></table></td></tr></table></td></tr>';
+						if ( f.columNote == "" ) {
+							codeBody += '<tr><td style="padding: 0 6.667%;"><table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#dadada" width="100%" height="1"><tr><td></td></tr></table></td></tr>';
+						}
+						// console.log('Medium-Img-Text');
 						break;
 					case 'Circle-Img-Left':
 						const ResizeImg_150by150_1 = f.columImage.split('w=')[0] + 'w=150&h=150&fit=cover';
@@ -143,7 +186,20 @@ function makeSourceCode(key, worksheet) {
 							}
 							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; font-weight: 400; line-height: 1.25; white-space: pre-line;">' + TextEllipsis_55_4 + '</div>';
 						}
-						codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;"><a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a><span style="font-weight: 400;">作者 ' + f.columAuthor + '</span></div><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center" style="text-align: right;"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table></td></tr></table></td></tr></table></td></tr>';
+						if ( (f.columChannel !== "") || (f.columAuthor !== "") ) {
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;">';
+							if ( f.columChannel !== "" ) {
+								codeBody += '<a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a>';
+							}
+							if ( f.columAuthor !== "" ) {
+								codeBody += '<span style="font-weight: 400;">作者 ' + f.columAuthor + '</span>';
+							}
+							codeBody += '</div>';
+						}
+						if ( f.columButton !== "" ) {
+							codeBody += '<table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table>';
+						}
+						codeBody += '</td></tr></table></td></tr></table></td></tr>';
 						if ( f.columNote == "" ) {
 							codeBody += '<tr><td style="padding: 0 6.667%;"><table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#dadada" width="100%" height="1"><tr><td></td></tr></table></td></tr>';
 						}
@@ -161,7 +217,20 @@ function makeSourceCode(key, worksheet) {
 							}
 							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; font-weight: 400; line-height: 1.25; white-space: pre-line;">' + TextEllipsis_55_5 + '</div>';
 						}
-						codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;"><a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a><span style="font-weight: 400;">作者 ' + f.columAuthor + '</span></div><table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table></td></tr></table></td></tr></table></td></tr>';
+						if ( (f.columChannel !== "") || (f.columAuthor !== "") ) {
+							codeBody += '<div style="padding: 5px 0; color: #777; font-size: 0.875rem; line-height: 1;">';
+							if ( f.columChannel !== "" ) {
+								codeBody += '<a href="' + f.columChannelLink + '" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; color: #313160; font-weight: 500; text-decoration: none;">' + f.columChannel + '</a>';
+							}
+							if ( f.columAuthor !== "" ) {
+								codeBody += '<span style="font-weight: 400;">作者 ' + f.columAuthor + '</span>';
+							}
+							codeBody += '</div>';
+						}
+						if ( f.columButton !== "" ) {
+							codeBody += '<table cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td class="stack-column-center"><a href="' + f.columLink + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 1em;margin: 15px 0 0;color: #ffffff;font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif;font-size: 0.875rem;text-decoration: none;background: #313160;border: 0.5em solid #313160;border-radius: 5px;" class="button-a"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->' + f.columButton + '<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a></td></tr></table>';
+						}
+						codeBody += '</td></tr></table></td></tr></table></td></tr>';
 						if ( f.columNote == "" ) {
 							codeBody += '<tr><td style="padding: 0 6.667%;"><table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#dadada" width="100%" height="1"><tr><td></td></tr></table></td></tr>';
 						}
