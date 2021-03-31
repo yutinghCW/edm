@@ -168,7 +168,7 @@ function makeSourceCode(key, worksheet) {
 						if ( f.columChannel !== "" ) {
 							codeBody += '<table cellspacing="0" cellpadding="0" border="0" align="center" width="240"><tr><td valign="bottom" style="width: 27.5%; color: #313160; font-family: \'Times New Roman\', Times, serif; font-style: italic; font-size: 7.5rem; line-height: 1; white-space: nowrap;">' + f.columChannel + '</td><td valign="bottom" style="width: 72.5%; padding: 0 0 1.25rem; color: #313160;"><div style="font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif; font-size: 1rem;">' + f.columChannelLink + '</div><div style="padding: 3px 0 0; font-family: \'Noto Serif TC\', \'思源宋體 TC\', \'思源宋體 TW\', \'思源宋體\', serif; font-weight: bold; font-size: 1.5rem; line-height: 1.125;">' + f.columTitle + '</div></td></tr></table>';
 						} else {
-							codeBody += '<table cellspacing="0" cellpadding="0" border="0" align="center" style="max-width: 240px; border-left: 4px solid #313160;"><tr><td valign="bottom" style="padding: 0 0 0 20px; color: #313160;"><div style="font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif; font-size: 1rem;">' + f.columChannelLink + '</div><div style="padding: 3px 0 0; font-family: \'Noto Serif TC\', \'思源宋體 TC\', \'思源宋體 TW\', \'思源宋體\', serif; font-weight: bold; font-size: 1.5rem; line-height: 1.125;">' + f.columTitle + '</div></td></tr></table>';
+							codeBody += '<table cellspacing="0" cellpadding="0" border="0" align="center" style="max-width: 240px;"><tr><td valign="bottom" style="padding: 0 0 0 20px; color: #313160; border-left: 4px solid #313160;"><div style="font-family: \'Roboto\', \'Noto Sans TC\', \'思源黑體 TC\', \'思源黑體 TW\', \'思源黑體\', \'微軟正黑體\', \'繁黑體\', \'Microsoft JhengHei\', \'Lato\', \'Arial\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'新細明體\', sans-serif; font-size: 1rem;">' + f.columChannelLink + '</div><div style="padding: 3px 0 0; font-family: \'Noto Serif TC\', \'思源宋體 TC\', \'思源宋體 TW\', \'思源宋體\', serif; font-weight: bold; font-size: 1.5rem; line-height: 1.125;">' + f.columTitle + '</div></td></tr><tr><td style="padding: 20px 0 0;"></td></tr></table>';
 						}
 						codeBody += '</td></tr><tr><td style="padding: 0 6.6667%;"><table cellspacing="0" cellpadding="0" border="0" align="center"><tr><td><a href="#!" target="_blank" rel="noopener noreferrer" style="display: block;"><img src="' + ResizeImg_350by250 + '" width="350" alt="alt_text" border="0" style="display: block; width: 100%; max-width: 350px; height: auto;"></a></td></tr><tr><td style="padding: 5px 0 20px; color: #777; font-size: 0.875rem;">' + f.columAuthor + '</td></tr></table></td></tr>';
 						if ( f.columText !== "" ) {
@@ -291,7 +291,7 @@ if ( window.location.href.indexOf('initial') > 0 ) {
 				columNote: f.gsx$標誌.$t
             };
         });
-        document.title = data.funcColum[0].columTitle + " - 獨立評論電子報";
+        document.title = data.funcColum[0].columAuthor + " - 獨立評論電子報";
 		gtag('config', 'UA-1198057-9');
 		ga('send', 'pageview');
         if ( window.location.href.indexOf('playID') > 0 ) {
