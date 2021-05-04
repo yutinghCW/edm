@@ -86,6 +86,11 @@ function makeSourceCode(key, worksheet) {
                         codeBody += checkColumnEnd(multiColumCont) + '<tr><td style="padding: 30px 2.857143% 50px;"><h3 style="margin: 15px 0; font-size: 1.125rem;">' + f.columTitle + '</h3><p style="margin: 0; font-size: 1rem; word-wrap: break-word; white-space: pre-wrap;">' + f.columText + '</p></td></tr>'
                         multiColumCont = 0;
                         break;
+                    case 'site-text':
+                        console.log('site-text, ' + multiColumCont);
+                        codeBody += checkColumnEnd(multiColumCont) + '<tr><td style="padding: 20px 10px 0px;"><h3 style="margin: 0; color: #000; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1.625rem; font-weight: 500; mso-height-rule: exactly; line-height: 1.25;">' + f.columTitle + '</h3><p style="margin: 10px 0 0; padding: 0; color: #000; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 1.125rem; mso-height-rule: exactly; line-height: 1.5; text-align: left; word-wrap: break-word; white-space: pre-wrap;">' + f.columText + '</p></td></tr>'
+                        multiColumCont = 0;
+                        break;
                     case 'foot':
                         console.log('foot');
                         break;
