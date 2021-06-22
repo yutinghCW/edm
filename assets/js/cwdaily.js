@@ -1,6 +1,7 @@
 var width = $(window).width(),
-    initial = "https://yutinghcw.github.io/edm/initial/cwdaily.html",
-    playlist = "https://yutinghcw.github.io/edm/initial/playlist-zh.html",
+    host = window.location.href.split('/generator')[0],
+    initial = host + "/initial/cwdaily.html",
+    playlist = host + "/initial/playlist-zh.html",
     currentYear = new Date().getFullYear();
 
 //修改目的：提供EDM公版//

@@ -1,5 +1,6 @@
 var width = $(window).width(),
-	initial = "https://yutinghcw.github.io/edm/initial/opinion-v2-exp.html",
+    host = window.location.href.split('/generator')[0],
+	initial = host + "/initial/opinion-v2-exp.html",
 	currentYear = new Date().getFullYear();
 
 //修改目的：提供EDM公版//
