@@ -1,5 +1,5 @@
 var width = $(window).width(),
-    host = window.location.href.split('/generator')[0],
+    host = 'https://yutinghcw.github.io/edm',
     initial = host + "/initial/economist.html",
     currentYear = new Date().getFullYear();
 
