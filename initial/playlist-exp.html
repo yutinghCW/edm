@@ -38,12 +38,14 @@
         $.getJSON(gspreadsheets, function (l) {
             //將載入列表轉換為清單的格式
             $.each(l.feed.entry, function (i, f) {
-                data.voicelist[i] = {
-                    date: f.gsx$date.$t,
-                    id: f.gsx$id.$t,
-                    title: f.gsx$title.$t,
-                    mp3: f.gsx$mp3.$t
-                };
+                if ( i < 5 ) {
+                    data.voicelist[i] = {
+                        date: f.gsx$date.$t,
+                        id: f.gsx$id.$t,
+                        title: f.gsx$title.$t,
+                        mp3: f.gsx$mp3.$t
+                    };
+                }
             });
 
             //mp3 player的播放清單程式

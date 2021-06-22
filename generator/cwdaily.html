@@ -61,18 +61,37 @@
             <hr class="my40">
             <section class="section--btn">
                 <button id="preview" class="btn btn--contained mb10 ml0 mr10">預覽</button>
+                <button id="previewExp" class="btn btn--contained mb10 ml0 mr10">預覽實驗</button>
                 <button id="previewBlank" class="btn btn--contained mb10 ml0 mr10">新視窗預覽</button>
-                <button id="source" class="btn btn--contained mb10 mx0">發信用原始碼</button>
+                <button id="source" class="btn btn--contained mb10 ml0 mr10">發信用原始碼</button>
+                <button id="sourceExp" class="btn btn--contained mb10 mx0">實驗用原始碼</button>
             </section>
         </div>
         <section class="mt20">
             <div id="previewHtml" class="container py20" style="display: none;">
                 <div class="bg-gray-100 pb20"></div>
             </div>
+            <div id="previewHtmlExp" class="container py20" style="display: none;">
+                <div class="bg-gray-100 pb20"></div>
+            </div>
             <div id="sourceCode" class="container" style="display: none;">
                 <div class="p20 bg-gray-100">
-                    <button id="copySource" class="btn btn--outlined btn--small">複製</button>
+                    <button id="copySource" class="copySource btn btn--outlined btn--small">複製</button>
                     <textarea cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div id="sourceCodeExp" class="container" style="display: none;">
+                <div class="p20 bg-gray-100">
+                    <button id="copySourceExp1" class="copySource btn btn--outlined btn--small">複製</button>
+                    <textarea id="textareaA" cols="30" rows="10"></textarea>
+                </div>
+                <div class="p20 bg-gray-100">
+                    <button id="copySourceExp2" class="copySource btn btn--outlined btn--small">複製</button>
+                    <textarea id="textareaB" cols="30" rows="10"></textarea>
+                </div>
+                <div class="p20 bg-gray-100">
+                    <button id="copySourceExp3" class="copySource btn btn--outlined btn--small">複製</button>
+                    <textarea id="textareaC" cols="30" rows="10"></textarea>
                 </div>
             </div>
         </section>

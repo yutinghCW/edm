@@ -69,8 +69,10 @@ section {
     }
 }
 
-#previewHtml > table {
-    border: 1px solid $gray-200;
+#previewHtml, #previewHtmlExp {
+    > table {
+        border: 1px solid $gray-200;
+    }
 }
 
 #sourceCode {
@@ -83,4 +85,9 @@ section {
     textarea {
         width: 100%;
     }
+}
+
+table .container {
+    width: 700px;
+    padding: 0;
 }

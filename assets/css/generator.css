@@ -55,18 +55,23 @@ section.section--sop .close--sop .icon {
   font-size: 1.125rem;
 }
 
-#previewHtml > table {
+#previewHtml > table, #previewHtmlExp > table {
   border: 1px solid #D3D5D7;
 }
 
-#sourceCode #copySource {
+.copySource {
   display: table;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
 }
-#sourceCode textarea {
+textarea {
   width: 100%;
+}
+
+table .container {
+  width: 700px;
+  padding: 0;
 }
 
 /*# sourceMappingURL=generator.css.map */
