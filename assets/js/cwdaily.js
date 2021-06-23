@@ -145,7 +145,7 @@ function makeSourceCodeExp(key, worksheet) {
             };
         });
 
-        if( data1.funcColum[1].columType == "AD-text" == "AD-text" ){
+        if( data1.funcColum[1].columType == "AD-text" ){
             adText = '<tr><td style="padding: 0.5rem 2.858%; border-bottom: 1px solid #c9c9c9;"><a href="' + data1.funcColum[1].columLink + '" target="_blank" rel="noopener noreferrer" id="adTextLink" style="color:#666; font-family: roboto, noto sans tc, 思源黑體 tc, 思源黑體 tw, 思源黑體, 微軟正黑體, 繁黑體, microsoft jhenghei, arial, sans-serif; font-size: 0.8125rem; text-decoration: none; line-height: 1.5;">' + data1.funcColum[1].columTitle + '</a></td></tr>';
         } else {
             adText = '';
