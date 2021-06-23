@@ -254,8 +254,8 @@ function makeSourceCodeExp(key, worksheet) {
         // });
         //將原始碼塞入「發信用原始碼」的框框
         $("#sourceCodeExp #textareaA").val(sectionOne);
-        $("#sourceCodeExp #textareaB").val(sectionTwo);
-        $("#sourceCodeExp #textareaC").val(codeFoot+trackFoot);
+        $("#sourceCodeExp #textareaB").val(sectionTwo+codeFoot+trackFoot);
+        // $("#sourceCodeExp #textareaC").val();
         //將原始碼丟入「預覽」框，呈現組裝後的結果
         $("#previewHtmlExp").html(codeHead+sectionOne+sectionTwo+codeFoot+previewFoot1);
         $("#initialExp").html(previewHead+codeHead+sectionOne+sectionTwo+codeFoot+previewFoot1+previewFoot2);
