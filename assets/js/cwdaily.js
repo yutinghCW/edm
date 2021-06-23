@@ -308,6 +308,12 @@ $("#previewBlank").click(function () {
     window.open(url, '_blank');
 });
 
+$("#previewBlankExp").click(function () {
+    var key = $("#dockey").val().split("/d/")[1].split("/")[0];
+    url = initialExp + "?file=" + key;
+    window.open(url, '_blank');
+});
+
 $("#source").click( function(){
     var key = $("#dockey").val().split("/d/")[1].split("/")[0],
         worksheet = $("#worksheet").val();
